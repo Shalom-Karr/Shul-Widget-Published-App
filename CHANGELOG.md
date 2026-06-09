@@ -8,6 +8,11 @@ This project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [v2.1.0] - 2026-06-09
 
+## [v2.1.1] - 2026-06-09
+
+Released 2026-06-09. See the [release page](https://github.com/Shalom-Karr/Shul-Widget-Published-App/releases/tag/v2.1.1) for the APK.
+
+
 Device location for weather + a wider Next Up widget.
 
 - **Use device location for weather** (Settings) — the weather screen and weather widget can follow your phone's GPS location instead of the shul's. Zmanim **always** stay on the shul's location (they're halachically tied to where you daven).
