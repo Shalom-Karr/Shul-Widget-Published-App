@@ -6,7 +6,43 @@ This project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
-- Migrated public distribution to this repo. Source remains in a private repository.
+- v0.0.6: Events table, item-type icons (book/person), team chat with OS notifications, 6 more daily zmanim.
+
+## [v0.0.5] - 2026-06-09
+
+### Added
+- **Admin login + RBAC** — Sign in with your shul Supabase email/password. Owner / admin roles unlock the admin shell.
+- **Admin CRUD** — minyanim, shiurim, exceptions, and basic settings, all editable from the phone via the Supabase REST API.
+- **Kiosk preview** — landscape-locked WebView of your shul's public kiosk page (Settings → Open kiosk preview).
+- **"Open full admin in browser"** — deep link to your shul's web admin for tenant-specific features (TLK audio uploads, CMH custom hero, …).
+- **Report a bug** — pre-filled GitHub issue with app/Android/shul diagnostics.
+- **Shul logos** — pulled from registry into pickers, screens, and headers via Coil.
+- **SK Luach app icon** — custom adaptive icon.
+- **David Libre Hebrew font** — embedded.
+- **Zmanim 6 → 14** — added Alos, Misheyakir, Sof Zman Shma / Tfila (MGA + GRA), Chatzos, Mincha Ketana.
+
+### Changed
+- **Widget UI** — always-light cream surface, navy + gold text, bigger fonts, responsive small/medium/large layouts.
+- **Candle lighting** — now only shows on Friday.
+- **Settings "Check for updates"** — bypasses the 6-hour throttle so manual taps actually hit the API.
+
+### Fixed
+- **Khal Yereim load failure** — handle nullable `tefilla` / `day_pattern` / `anchor` in resolver.
+
+## [v0.0.4] - 2026-06-09
+
+### Added
+- **Zmanim tab** — 4th tab showing all selected zmanim. Customize which ones in Settings → Zmanim displayed.
+- **Boot + tick receivers** — widget repaints on reboot, screen-on, time/date change without waiting for the 30-minute worker.
+- **Stable debug keystore** — APK upgrades no longer require uninstalling.
+- **Widget rewrite** — responsive small/medium/large layouts; explicit error and empty states (no more silent dashes).
+
+### Changed
+- Refined Material 3 theme, PullToRefresh on Today, SegmentedButton on Schedule, shared empty/loading/error states with proper icons, fade transitions.
+
+### Fixed
+- Picker save now reliably refreshes the widget (extra `APPWIDGET_UPDATE` broadcast).
+- Glance action API resolution (`actionStartActivity(Intent)`).
 
 ## [v0.0.3] - 2026-06-08
 
