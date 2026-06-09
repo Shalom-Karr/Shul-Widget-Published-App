@@ -8,6 +8,41 @@ This project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - v0.0.6: Events table, item-type icons (book/person), team chat with OS notifications, 6 more daily zmanim.
 
+## [v1.0.0] - 2026-06-09
+
+**First stable release.**
+
+### Notes
+- Promoted v0.0.7's binary from pre-release to stable so the in-app `/releases/latest` updater can resolve it. (GitHub's API silently skips pre-releases.)
+- `BuildConfig.VERSION_NAME` inside the APK is still `0.0.7-debug`; v1.0.1 will bump it to `1.0.1` to break the spurious "newer version available" loop on installed v1.0.0 phones.
+
+### Bundles everything from v0.0.1 through v0.0.7.
+
+## [v0.0.7] - 2026-06-09
+
+### Added
+- **Open-Meteo weather** — new Weather tab + separate weather widget. Free, no API key.
+- **Events** — `shul_<prefix>_events` table support. Non-tefilla recurring items appear in Today + widget; `is_header` rows render as section dividers.
+- **Admin → Events tab** — full CRUD form, `is_header` toggle collapses time fields.
+- **Item-type icons** on Today + widget: book for minyanim, person for shiurim, calendar for events. Toggle in Settings.
+- **6 more zmanim**: Plag Hamincha (MGA), Bain Hashmashos (RT 13.24°), Tzais 60, Tzais 72, Tzais (Rabbeinu Tam), Chatzos Halayla.
+
+### Changed
+- **Admin tab row** is now a horizontally-scrolling LazyRow of FilterChips — fits on narrow phones without truncation.
+- **Widget large layout** rewritten with Glance LazyColumn — scrolls through the full chronological day.
+
+## [v0.0.6] - 2026-06-09
+
+### Added
+- **Admin tab in bottom navigation** — appears automatically when signed in.
+- **Date picker on Today** — calendar icon top-right, pick any date.
+
+### Changed
+- **Widget refresh on shul switch** — reliably repaints with the new shul's data.
+
+### Fixed
+- `release-to-public.yml` workflow — replaced broken Python heredocs with awk + sed.
+
 ## [v0.0.5] - 2026-06-09
 
 ### Added
