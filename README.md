@@ -2,7 +2,7 @@
 
 Android app + home-screen widget for any Luach-powered shul. Multi-tenant — one app, three shuls so far (CMH, Khal Yereim, Torah Life Kollel), more easy to add.
 
-**Latest: v1.1.0** — adds **Sign in with Google** for admins.
+**Latest: v1.2.1** — Hide/show bottom-nav tabs (Settings → Visible tabs) + fix for the "Pick a shul before signing in with Google" false negative. v1.1.0 added **Sign in with Google** for admins.
 
 ## Install
 
@@ -28,7 +28,7 @@ Supports **Android 7.1.1 (API 25) and up**.
 | **Weather** | Open-Meteo (free, no API key) — current conditions, 5-day outlook, hourly breakdown when you tap a day. |
 | **Admin** | **Sign in with Google** *(v1.1.0)* or email/password. Once signed in, manage minyanim, shiurim, events, exceptions, and settings for your shul. |
 | **Chat** *(admins only)* | Per-shul team chat with OS notifications. |
-| **Settings** | Switch shul, refresh schedule, check for updates, customize zmanim, item-type icons toggle, kiosk preview, open full web admin, contact developer, report a bug. |
+| **Settings** | Switch shul, refresh schedule, check for updates, customize zmanim, **pick which tabs are visible in the bottom nav** (v1.2.0+), item-type icons toggle, kiosk preview, open full web admin, contact developer, report a bug. |
 
 ### Two widgets
 
