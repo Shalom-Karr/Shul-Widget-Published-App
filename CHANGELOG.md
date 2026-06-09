@@ -8,6 +8,11 @@ This project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - v0.0.6: Events table, item-type icons (book/person), team chat with OS notifications, 6 more daily zmanim.
 
+## [v1.0.6] - 2026-06-09
+
+Released 2026-06-09. See the [release page](https://github.com/Shalom-Karr/Shul-Widget-Published-App/releases/tag/v1.0.6) for the APK.
+
+
 ## [v1.0.5] - 2026-06-09
 
 Released 2026-06-09. See the [release page](https://github.com/Shalom-Karr/Shul-Widget-Published-App/releases/tag/v1.0.5) for the APK.
