@@ -8,6 +8,11 @@ This project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [v1.0.6] - 2026-06-09
 
+## [v1.2.0] - 2026-06-09
+
+Released 2026-06-09. See the [release page](https://github.com/Shalom-Karr/Shul-Widget-Published-App/releases/tag/v1.2.0) for the APK.
+
+
 ## [v1.1.0] - 2026-06-09
 
 Released 2026-06-09. See the [release page](https://github.com/Shalom-Karr/Shul-Widget-Published-App/releases/tag/v1.1.0) for the APK.
