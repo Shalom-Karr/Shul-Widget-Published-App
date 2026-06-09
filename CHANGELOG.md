@@ -6,12 +6,26 @@ This project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
-## [v2.0.0] - 2026-06-09
+## [v2.1.0] - 2026-06-09
+
+Device location for weather + a wider Next Up widget.
+
+- **Use device location for weather** (Settings) — the weather screen and weather widget can follow your phone's GPS location instead of the shul's. Zmanim **always** stay on the shul's location (they're halachically tied to where you daven).
+- **Next Up widget** is now wide and short (defaults to 3×2, resizable down to 1 tall) instead of a tall narrow box.
+
+See the [release page](https://github.com/Shalom-Karr/Shul-Widget-Published-App/releases/tag/v2.1.0) for the APK.
+
 
 ## [v2.0.1] - 2026-06-09
 
-Released 2026-06-09. See the [release page](https://github.com/Shalom-Karr/Shul-Widget-Published-App/releases/tag/v2.0.1) for the APK.
+Notification settings.
 
+- **Notification settings** (Settings → Notification settings) — pick a custom reminder alarm sound, toggle vibration, and jump to the system per-channel settings. (The alarm channel regenerates so a new sound actually takes effect on Android O+.)
+
+See the [release page](https://github.com/Shalom-Karr/Shul-Widget-Published-App/releases/tag/v2.0.1) for the APK.
+
+
+## [v2.0.0] - 2026-06-09
 
 A widget family and a themed UI refresh.
 
