@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Shul Widget</title>
+<meta name="description" content="Android home-screen widget for Luach shuls. Today's next minyan and shiurim, on your home screen.">
+<style>
+  :root {
+    --bg: #0b1220;
+    --fg: #f8fafc;
+    --muted: #94a3b8;
+    --accent: #60a5fa;
+    --border: rgba(255,255,255,0.08);
+    --card: rgba(255,255,255,0.04);
+  }
+  @media (prefers-color-scheme: light) {
+    :root {
+      --bg: #f8fafc;
+      --fg: #0b1220;
+      --muted: #475569;
+      --accent: #1e3a8a;
+      --border: rgba(0,0,0,0.08);
+      --card: rgba(0,0,0,0.03);
+    }
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
+    background: var(--bg);
+    color: var(--fg);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 64px 24px 96px; }
+  header { margin-bottom: 56px; }
+  .eyebrow {
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 12px;
+    font-weight: 600;
+  }
+  h1 {
+    font-size: 44px;
+    line-height: 1.1;
+    margin: 0 0 16px;
+    letter-spacing: -0.02em;
+    font-weight: 700;
+  }
+  .lede { font-size: 19px; color: var(--muted); margin: 0; max-width: 560px; }
+  .cta {
+    display: inline-flex; align-items: center; gap: 10px;
+    margin-top: 28px;
+    padding: 14px 22px;
+    background: var(--accent);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: transform 0.1s ease, opacity 0.1s ease;
+  }
+  .cta:hover { transform: translateY(-1px); opacity: 0.92; }
+  .cta-sub { display: block; color: var(--muted); font-size: 14px; margin-top: 10px; }
+  section { margin-top: 48px; }
+  h2 {
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+    margin: 0 0 16px;
+  }
+  ul.feature-list { list-style: none; padding: 0; margin: 0; }
+  ul.feature-list li {
+    padding: 14px 16px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 8px;
+  }
+  ol.steps { padding-left: 22px; margin: 0; }
+  ol.steps li { padding: 8px 0; }
+  .meta {
+    margin-top: 64px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .meta a { color: var(--accent); }
+  code {
+    background: var(--card);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.9em;
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <p class="eyebrow">Android · Home-screen widget</p>
+      <h1>Today's next minyan, at a glance.</h1>
+      <p class="lede">Shul Widget puts your shul's davening times on your home screen. Pick your shul once. The widget keeps itself current.</p>
+      <a class="cta" href="https://github.com/Shalom-Karr/Shul-Widget-Published-App/releases/latest" id="download-cta">
+        Download latest APK
+      </a>
+      <small class="cta-sub">Sideload-only. Supports Android 7.1.1 and up.</small>
+    </header>
+
+    <section>
+      <h2>Features</h2>
+      <ul class="feature-list">
+        <li>Today's next minyan, refreshed automatically</li>
+        <li>Daily shiurim</li>
+        <li>Zmanim computed on-device — no network round-trip after first load</li>
+        <li>Auto-updates from this page on every release</li>
+        <li>Works for any Luach shul (CMH, Khal Yereim, Torah Life Kollel, …)</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Install</h2>
+      <ol class="steps">
+        <li>Download the APK from <a href="https://github.com/Shalom-Karr/Shul-Widget-Published-App/releases/latest">the latest release</a>.</li>
+        <li>Open it on your phone. Allow "Install from unknown sources" if asked.</li>
+        <li>Long-press your home screen → <strong>Widgets</strong> → drag <strong>Shul Widget</strong>.</li>
+        <li>Pick your shul. Done.</li>
+      </ol>
+    </section>
+
+    <p class="meta">
+      © 2026 Shalom Karr. Personal, non-commercial use only.
+      <a href="LICENSE">License</a> · <a href="CHANGELOG.md">Changelog</a> · <a href="https://github.com/Shalom-Karr/Shul-Widget-Published-App/releases">All releases</a>
+    </p>
+  </div>
+</body>
+</html>
