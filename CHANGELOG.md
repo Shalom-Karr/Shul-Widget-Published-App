@@ -8,6 +8,11 @@ This project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [v2.0.0] - 2026-06-09
 
+## [v2.0.1] - 2026-06-09
+
+Released 2026-06-09. See the [release page](https://github.com/Shalom-Karr/Shul-Widget-Published-App/releases/tag/v2.0.1) for the APK.
+
+
 A widget family and a themed UI refresh.
 
 ### Widgets — five new types
