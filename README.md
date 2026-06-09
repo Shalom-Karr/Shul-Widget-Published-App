@@ -2,9 +2,14 @@
 
 Android app + home-screen widget for any Luach-powered shul. Multi-tenant — one app, three shuls so far (CMH, Khal Yereim, Torah Life Kollel), more easy to add.
 
+**Latest: v1.1.0** — adds **Sign in with Google** for admins.
+
 ## Install
 
-1. Download the APK from [Releases](https://github.com/Shalom-Karr/Shul-Widget-Published-App/releases/latest).
+1. Download the APK for your phone from the [latest release](https://github.com/Shalom-Karr/Shul-Widget-Published-App/releases/latest).
+   - Most modern phones: `shul-widget-vX.Y.Z-arm64-v8a.apk`
+   - Older budget phones (TracFone, Moto E): `shul-widget-vX.Y.Z-armeabi-v7a.apk`
+   - Emulator / unsure: `shul-widget-vX.Y.Z.apk` (universal)
 2. Open it on your phone. Allow "Install from unknown sources" if asked.
 3. Long-press your home screen → **Widgets** → drag **Shul Widget** out.
 4. Pick your shul. Done.
@@ -13,31 +18,51 @@ Supports **Android 7.1.1 (API 25) and up**.
 
 ## What's in the app
 
-### Five tabs (six when signed in as admin)
+### Seven tabs
 
-- **Today** — chronological list of today's minyanim, shiurim, and events with a date picker so you can scrub to any day, past or future
-- **Schedule** — weekly recurring view per tefilla (Shacharis / Mincha / Maariv)
-- **Zmanim** — 20 zmanim available (Alos, Misheyakir, Sunrise, Sof Zman Shma MGA + GRA, Sof Zman Tfila MGA + GRA, Chatzos, Mincha Gedola, Mincha Ketana, Plag, Plag MGA, Candle Lighting, Sunset, Bain Hashmashos, Tzais, Tzais 60, Tzais 72, Tzais RT, Chatzos Halayla). Customize which appear in Settings.
-- **Weather** — Open-Meteo (free, no API key), current conditions + 5-day forecast
-- **Settings** — switch shul, admin login, customize zmanim, item-type icons toggle, kiosk preview, open full web admin, report a bug, check for updates
-- **Admin** (appears only when signed in) — minyanim / shiurim / events / exceptions / settings CRUD against your shul's Supabase
+| Tab | What |
+| --- | --- |
+| **Today** | Chronological list of today's minyanim, shiurim, and events. Date picker scrubs to any day, past or future. |
+| **Schedule** | Weekly recurring view per tefilla (Shacharis / Mincha / Maariv). |
+| **Zmanim** | 20 zmanim available (Alos, Misheyakir, sunrise, Sof Zman Shma / Tfila MGA + GRA, Chatzos, mincha gedola / ketana, plag MGA + plag, candle lighting, sunset, bain hashmashos, tzais 60 / 72 / RT, chatzos halayla). Customize which appear in Settings. |
+| **Weather** | Open-Meteo (free, no API key) — current conditions, 5-day outlook, hourly breakdown when you tap a day. |
+| **Admin** | **Sign in with Google** *(v1.1.0)* or email/password. Once signed in, manage minyanim, shiurim, events, exceptions, and settings for your shul. |
+| **Chat** *(admins only)* | Per-shul team chat with OS notifications. |
+| **Settings** | Switch shul, refresh schedule, check for updates, customize zmanim, item-type icons toggle, kiosk preview, open full web admin, contact developer, report a bug. |
 
 ### Two widgets
 
 - **Schedule widget** — three responsive sizes; large layout scrolls the full chronological day via Glance LazyColumn. Light cream surface, navy + gold text, item-type icons.
 - **Weather widget** — current conditions + 5-day forecast in the same visual language.
 
-### Other
+### Under the hood
 
-- Zmanim computed on-device via KosherJava — no network round-trip after the first load
-- Auto-updates from this repo's Releases — install once, get every future version automatically
-- Self-updater shows verbose snackbar diagnostics (v1.0.1+) so you can see exactly what happened
-- Light theme for the widgets regardless of system dark mode (home screens have unpredictable wallpapers)
-- Stable debug keystore so APK upgrades happen in place, no uninstall + reinstall
+- **Stale-while-revalidate caching** — tabs paint cached data instantly, refresh in the background.
+- **Zmanim computed on-device** via KosherJava — no network round-trip after the first load.
+- **ABI-aware self-updater** — picks the APK slice matching your phone's CPU so you don't download more than you need.
+- **Auto-updates** from this repo's Releases — install once, get every future version automatically.
+- **Light theme widgets** regardless of system dark mode (home screens have unpredictable wallpapers).
+- **Stable signing** — APK upgrades happen in place, no uninstall + reinstall.
+
+## Sign in with Google
+
+v1.1.0 added a "Sign in with Google" button on the Admin tab.
+
+1. Tap **Admin** at the bottom of the app.
+2. Tap **Sign in with Google**.
+3. A browser tab opens; pick your Google account.
+4. You're returned to the app automatically. If your account is listed as an admin for the selected shul, you'll land in the management screen.
+
+Email/password sign-in is still available below the Google button.
 
 ## Latest changes
 
 See [CHANGELOG.md](CHANGELOG.md) for the full release history. The landing page at <https://shalom-karr.github.io/Shul-Widget-Published-App/> renders the changelog inline.
+
+## Contact + support
+
+- **Contact developer**: shalomkarr+luach.app@gmail.com
+- **Report a bug**: Settings tab → Report a bug — opens a GitHub issue prefilled with app/Android/shul diagnostics.
 
 ## License
 
