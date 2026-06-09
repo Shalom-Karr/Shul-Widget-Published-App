@@ -6,17 +6,38 @@ This project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
-## [v2.1.0] - 2026-06-09
+## [v2.2.0] - 2026-06-09
+
+Per-widget shul, a working Custom widget, widget sizing, and a Shabbos view.
+
+### Widgets
+
+- **Each widget can show a different shul** — pick the shul per widget when you place it (Next Up, Zmanim, Full Day, Full Screen, Custom, Weather); its zmanim and times follow that shul. The global shul stays the default.
+- **The Custom widget really customizes now** — choose which sections show (Header / Next / Schedule / Zmanim) and reorder them top-to-bottom. Fixes a bug where it always showed everything regardless of your choices.
+- **Better sizing** — the widgets now lay out for their actual placed size and re-render when you resize them.
+
+### App
+
+- **See Shabbos** — a new view (twilight icon on the Today screen) showing the upcoming Erev Shabbos (Friday from Mincha onward + candle lighting) and Shabbos, with the **parsha** and Shabbos-ends time.
+
+See the [release page](https://github.com/Shalom-Karr/Shul-Widget-Published-App/releases/tag/v2.2.0) for the APK.
+
 
 ## [v2.1.1] - 2026-06-09
 
-Released 2026-06-09. See the [release page](https://github.com/Shalom-Karr/Shul-Widget-Published-App/releases/tag/v2.1.1) for the APK.
+Wider Next Up widget + zmanim fixes.
+
+- **Next Up widget** is now wide and short (defaults to 3×2, resizable down to 1 tall) instead of a tall narrow box.
+- **Tzais Hakochavim** now uses the Geonim 8.5° shita; the separate Rabbeinu Tam entry was removed (the 72-minute entry is labeled "Tzais 72 (Rabbeinu Tam)") and Bein Hashmashos was removed from the list.
+
+See the [release page](https://github.com/Shalom-Karr/Shul-Widget-Published-App/releases/tag/v2.1.1) for the APK.
 
 
-Device location for weather + a wider Next Up widget.
+## [v2.1.0] - 2026-06-09
+
+Device location for weather.
 
 - **Use device location for weather** (Settings) — the weather screen and weather widget can follow your phone's GPS location instead of the shul's. Zmanim **always** stay on the shul's location (they're halachically tied to where you daven).
-- **Next Up widget** is now wide and short (defaults to 3×2, resizable down to 1 tall) instead of a tall narrow box.
 
 See the [release page](https://github.com/Shalom-Karr/Shul-Widget-Published-App/releases/tag/v2.1.0) for the APK.
 

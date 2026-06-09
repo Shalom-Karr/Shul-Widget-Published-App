@@ -2,7 +2,7 @@
 
 Android app + home-screen widget for any Luach-powered shul. Multi-tenant — one app, three shuls so far (CMH, Khal Yereim, Torah Life Kollel), more easy to add.
 
-**Latest: v2.1.0** — **Use device location for weather** (zmanim stay on the shul's location) and a wider Next Up widget. v2.0.x brought a full **widget family** (seven widgets: schedule, weather, next-up countdown, zmanim, full-day, full-screen, and a **customizable** one you configure on placement), **minyan/zman reminders** that alarm you (vibrate + alarm sound) with **customizable sound/vibration**, and an in-app **brand-themed UI refresh**. v1.1.0 added **Sign in with Google** for admins.
+**Latest: v2.2.0** — **Per-widget shul** (every widget can show a different shul; its zmanim follow it), the **Custom widget** now really customizes (pick + reorder sections), better widget sizing, and a **See Shabbos** view (Friday-Mincha-onward + Shabbos, with the parsha). v2.1.x added **device location for weather** and a wider Next Up widget; v2.0.x brought the full **widget family** (seven widgets) plus **reminders** with customizable alarm sound. v1.1.0 added **Sign in with Google** for admins.
 
 ## Install
 
