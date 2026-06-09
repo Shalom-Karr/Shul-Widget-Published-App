@@ -1,52 +1,89 @@
 # Changelog
 
-All notable changes to Shul Widget are documented here.
+All notable changes to [Shul Widget](https://github.com/Shalom-Karr/Shul-Widget-Published-App) are documented here. APKs for every tagged release live on the [Releases page](https://github.com/Shalom-Karr/Shul-Widget-Published-App/releases).
 
 This project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html). Pre-1.0 releases are pre-production.
 
 ## [Unreleased]
 
-- v0.0.6: Events table, item-type icons (book/person), team chat with OS notifications, 6 more daily zmanim.
-
 ## [v1.0.6] - 2026-06-09
 
-Released 2026-06-09. See the [release page](https://github.com/Shalom-Karr/Shul-Widget-Published-App/releases/tag/v1.0.6) for the APK.
+[Release page](https://github.com/Shalom-Karr/Shul-Widget-Published-App/releases/tag/v1.0.6)
 
+### Changed
+- **ABI splits** — CI now produces 4 APKs (`armeabi-v7a`, `arm64-v8a`, `x86_64`, plus a universal fallback). The in-app updater picks the slice matching `Build.SUPPORTED_ABIS`, so a TracFone (armv7) downloads ~25% of what a modern phone does. The universal APK keeps the legacy `shul-widget-vX.Y.Z.apk` filename so v1.0.5 clients with the old asset picker still upgrade safely.
+- **R8 on debug builds** — strips ~29,975 unused `material-icons-extended` entries plus other dead code. ~35% APK size cut overall.
+
+### Fixed
+- Install time on Android 7.1.1 drops from ~3 minutes to ~30 seconds (smaller APK → less `dex2oat` work).
 
 ## [v1.0.5] - 2026-06-09
 
-Released 2026-06-09. See the [release page](https://github.com/Shalom-Karr/Shul-Widget-Published-App/releases/tag/v1.0.5) for the APK.
+[Release page](https://github.com/Shalom-Karr/Shul-Widget-Published-App/releases/tag/v1.0.5)
 
+### Changed
+- **Settings → Zmanim displayed** moved to a dedicated sub-page. The chip grid no longer clutters the Settings root.
+- **Chat composer polish** — `FilledIconButton` fixed at 48dp, smaller progress spinner, rounded TextField, vertically centred alignment.
+
+### Fixed
+- **Chat send button stuck loading** — `refresh()`'s `wasSending` preservation was keeping the spinner forever after a successful send. Sending now clears explicitly before refresh.
 
 ## [v1.0.4] - 2026-06-09
 
-Released 2026-06-09. See the [release page](https://github.com/Shalom-Karr/Shul-Widget-Published-App/releases/tag/v1.0.4) for the APK.
+[Release page](https://github.com/Shalom-Karr/Shul-Widget-Published-App/releases/tag/v1.0.4)
 
+### Added
+- **Weather day-detail screen** — tap any day card to open hourly breakdown (temperature, conditions, precipitation chance) plus a sunrise/sunset card and a daily summary.
+
+### Changed
+- Open-Meteo hourly forecast now covers all 5 days (was capped at 24h).
 
 ## [v1.0.3] - 2026-06-09
 
-Released 2026-06-09. See the [release page](https://github.com/Shalom-Karr/Shul-Widget-Published-App/releases/tag/v1.0.3) for the APK.
+[Release page](https://github.com/Shalom-Karr/Shul-Widget-Published-App/releases/tag/v1.0.3)
 
+### Fixed
+- **Self-update install dialog** finally appears on Android 7.1.1. `ApkInstaller` is now branched by API level:
+  - API < 26: fires `ACTION_VIEW` with a `FileProvider` URI — the legacy path the OS install confirmation reliably honours.
+  - API ≥ 26: uses `PackageInstaller.Session` with a new `InstallStatusReceiver` that catches `STATUS_PENDING_USER_ACTION` and launches the confirm intent.
+- Both paths post a high-priority notification fallback so the install never gets stuck silent again.
+- **UI fixes from the Explore-agent audit:** `ChatScreen` substring crash (replaced with `take`), `KioskPreview` no longer hardcodes `Color.Black/White` (uses theme `scrim` / `inverseOnSurface`), 4 admin form `OutlinedTextField`s now have `imeAction = Done` so the keyboard's Done button actually submits.
 
 ## [v1.0.2] - 2026-06-09
 
-Released 2026-06-09. See the [release page](https://github.com/Shalom-Karr/Shul-Widget-Published-App/releases/tag/v1.0.2) for the APK.
+[Release page](https://github.com/Shalom-Karr/Shul-Widget-Published-App/releases/tag/v1.0.2)
 
+### Changed
+- **Widget + Today rows** now lay out title-left, time-right — matches the kiosk schedule layout for visual continuity.
+- **Widget large layout header** picks up the SK Luach logo.
+- **Weather widget** medium/large layouts gain an hourly strip (next 4-5 hours with temp + icon).
 
 ## [v1.0.1] - 2026-06-09
 
-Released 2026-06-09. See the [release page](https://github.com/Shalom-Karr/Shul-Widget-Published-App/releases/tag/v1.0.1) for the APK.
+[Release page](https://github.com/Shalom-Karr/Shul-Widget-Published-App/releases/tag/v1.0.1)
 
+### Added
+- **Team chat** — `shul_<prefix>_chat` table with OS notifications via `ChatPollWorker`. New Chat tab in the admin nav.
+- **Weather expansion** — hourly forecast, sunrise/sunset, UV, feels-like, cloud cover.
+
+### Changed
+- **UpdateChecker rewrite** — sealed `CheckResult` (Throttled / ApiFailure / ParseFailure / UpToDate / NoApkAsset / DownloadFailure / InstallTriggered) so the Settings snackbar can surface what actually happened. Switched from `/releases/latest` to `/releases?per_page=1` so pre-releases resolve too (the old endpoint silently 404s when only pre-releases exist, which is what stranded v0.0.7 → v1.0.0 for installed phones).
+- **Widget redesign** — navy + gold "NEXT" card, hairline dividers, bigger fonts.
+- **Bottom nav** shrinks fonts (and goes icon-only) when an admin is signed in, so the extra Admin/Chat tabs fit on narrow phones.
+
+### Fixed
+- `.gitignore` covers `_artifacts/`.
+- Removed rogue `CZC.java` / `ZC.java` files committed by accident.
 
 ## [v1.0.0] - 2026-06-09
 
-**First stable release.**
+[Release page](https://github.com/Shalom-Karr/Shul-Widget-Published-App/releases/tag/v1.0.0)
+
+**First stable release.** Bundles everything from v0.0.1 through v0.0.7.
 
 ### Notes
 - Promoted v0.0.7's binary from pre-release to stable so the in-app `/releases/latest` updater can resolve it. (GitHub's API silently skips pre-releases.)
-- `BuildConfig.VERSION_NAME` inside the APK is still `0.0.7-debug`; v1.0.1 will bump it to `1.0.1` to break the spurious "newer version available" loop on installed v1.0.0 phones.
-
-### Bundles everything from v0.0.1 through v0.0.7.
+- `BuildConfig.VERSION_NAME` inside the APK is still `0.0.7-debug`; v1.0.1 bumps it to `1.0.1` to break the spurious "newer version available" loop on installed v1.0.0 phones.
 
 ## [v0.0.7] - 2026-06-09
 
