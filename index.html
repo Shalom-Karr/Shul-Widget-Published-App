@@ -97,6 +97,32 @@
     border-radius: 4px;
     font-size: 0.9em;
   }
+  /* Changelog (auto-rendered from CHANGELOG.md via marked.js) */
+  #changelog {
+    margin-top: 64px;
+    padding: 32px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    max-height: 720px;
+    overflow-y: auto;
+  }
+  #changelog h2 { font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin: 0 0 16px; padding: 0; }
+  #changelog-body h1 { display: none; }
+  #changelog-body h2 {
+    text-transform: none; letter-spacing: 0; font-size: 22px; color: var(--fg);
+    font-weight: 700; margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--border);
+  }
+  #changelog-body h2:first-of-type { padding-top: 0; border-top: none; margin-top: 8px; }
+  #changelog-body h3 { font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); margin: 20px 0 8px; }
+  #changelog-body p { margin: 8px 0; color: var(--fg); }
+  #changelog-body ul { padding-left: 22px; margin: 8px 0; }
+  #changelog-body li { margin: 6px 0; }
+  #changelog-body a { color: var(--accent); }
+  #changelog-body strong { color: var(--fg); font-weight: 600; }
+  #changelog-body code { font-size: 0.85em; }
+  #changelog-status { color: var(--muted); font-size: 14px; margin: 8px 0 0; }
+  #changelog-status.error { color: #ef4444; }
 </style>
 </head>
 <body>
@@ -132,10 +158,60 @@
       </ol>
     </section>
 
+    <section id="changelog">
+      <h2>Changelog</h2>
+      <p id="changelog-status">Loading…</p>
+      <div id="changelog-body" hidden></div>
+    </section>
+
     <p class="meta">
       © 2026 Shalom Karr. Personal, non-commercial use only.
-      <a href="LICENSE">License</a> · <a href="CHANGELOG.md">Changelog</a> · <a href="https://github.com/Shalom-Karr/Shul-Widget-Published-App/releases">All releases</a>
+      <a href="LICENSE">License</a> · <a href="CHANGELOG.md">Full changelog</a> · <a href="https://github.com/Shalom-Karr/Shul-Widget-Published-App/releases">All releases</a>
     </p>
   </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js" defer></script>
+  <script>
+    // Auto-render CHANGELOG.md inside #changelog-body. Fetches the raw file from
+    // this repo's main branch so the page stays in sync without a rebuild step.
+    document.addEventListener('DOMContentLoaded', function () {
+      var statusEl = document.getElementById('changelog-status');
+      var bodyEl = document.getElementById('changelog-body');
+      var raw = 'https://raw.githubusercontent.com/Shalom-Karr/Shul-Widget-Published-App/main/CHANGELOG.md';
+      fetch(raw, { cache: 'no-store' })
+        .then(function (r) {
+          if (!r.ok) throw new Error('HTTP ' + r.status);
+          return r.text();
+        })
+        .then(function (md) {
+          if (typeof marked === 'undefined') {
+            // marked.js is still loading; wait for the script then render.
+            var wait = setInterval(function () {
+              if (typeof marked !== 'undefined') {
+                clearInterval(wait);
+                renderMd(md);
+              }
+            }, 50);
+          } else {
+            renderMd(md);
+          }
+        })
+        .catch(function (err) {
+          statusEl.textContent = 'Could not load changelog: ' + err.message;
+          statusEl.classList.add('error');
+        });
+
+      function renderMd(md) {
+        try {
+          bodyEl.innerHTML = marked.parse(md, { mangle: false, headerIds: false });
+          bodyEl.hidden = false;
+          statusEl.style.display = 'none';
+        } catch (e) {
+          statusEl.textContent = 'Could not render changelog: ' + e.message;
+          statusEl.classList.add('error');
+        }
+      }
+    });
+  </script>
 </body>
 </html>
