@@ -2,7 +2,7 @@
 
 Android app + home-screen widget for any Luach-powered shul. Multi-tenant — one app, three shuls so far (CMH, Khal Yereim, Torah Life Kollel), more easy to add.
 
-**Latest: v1.2.1** — Hide/show bottom-nav tabs (Settings → Visible tabs) + fix for the "Pick a shul before signing in with Google" false negative. v1.1.0 added **Sign in with Google** for admins.
+**Latest: v2.0.0** — A full **widget family** (seven widgets: schedule, weather, next-up countdown, zmanim, full-day, full-screen, and a **customizable** one you configure on placement), plus **minyan/zman reminders** that alarm you (vibrate + alarm sound) a set number of minutes before, and an in-app **brand-themed UI refresh**. v1.3.0 added reminders + a live widget countdown; v1.1.0 added **Sign in with Google** for admins.
 
 ## Install
 
@@ -28,11 +28,22 @@ Supports **Android 7.1.1 (API 25) and up**.
 | **Weather** | Open-Meteo (free, no API key) — current conditions, 5-day outlook, hourly breakdown when you tap a day. |
 | **Admin** | **Sign in with Google** *(v1.1.0)* or email/password. Once signed in, manage minyanim, shiurim, events, exceptions, and settings for your shul. |
 | **Chat** *(admins only)* | Per-shul team chat with OS notifications. |
-| **Settings** | Switch shul, refresh schedule, check for updates, customize zmanim, **pick which tabs are visible in the bottom nav** (v1.2.0+), item-type icons toggle, kiosk preview, open full web admin, contact developer, report a bug. |
+| **Settings** | Switch shul, refresh schedule, check for updates, customize zmanim, **pick which tabs are visible in the bottom nav** (v1.2.0+), **reminders** (v1.3.0+), item-type icons toggle, kiosk preview, open full web admin, contact developer, report a bug. |
 
-### Two widgets
+### Reminders *(v1.3.0+)*
 
-- **Schedule widget** — three responsive sizes; large layout scrolls the full chronological day via Glance LazyColumn. Light cream surface, navy + gold text, item-type icons.
+Settings → **Reminders**. Pick a minyan or a zman and how many minutes before it you want to know — the phone fires an **alarm-style notification (vibration + alarm sound)** at that moment, repeating every day the time occurs. Built on exact alarms so "10 minutes before Mincha" lands on the minute, and re-armed automatically after a reboot.
+
+### Seven widgets *(expanded in v2.0.0)*
+
+Long-press the home screen → **Widgets** → **Shul Widget** to find them all. Every widget keeps a light cream surface with navy + gold text so it reads on any wallpaper, and any widget showing zmanim honors your Settings → Zmanim selection.
+
+- **Schedule widget** — three responsive sizes; large layout scrolls the full chronological day. Now shows a live **"NEXT · in 25 min" countdown**.
+- **Next Up** *(v2.0.0)* — small, just the next minyan/shiur with its time and a live countdown.
+- **Zmanim** *(v2.0.0)* — today's zmanim (the set you chose in Settings).
+- **Full Day** *(v2.0.0)* — the whole day's schedule plus a zmanim strip, sized larger than the 3×2 schedule widget.
+- **Full Screen** *(v2.0.0)* — a big "next" hero + the full schedule + zmanim, sized to fill a maximized home-screen page.
+- **Custom** *(v2.0.0)* — configure on placement which sections show (Next / Schedule / Zmanim) and resize it however you like; each copy is independent.
 - **Weather widget** — current conditions + 5-day forecast in the same visual language.
 
 ### Under the hood

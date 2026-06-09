@@ -6,11 +6,37 @@ This project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [v2.0.0] - 2026-06-09
+
+A widget family and a themed UI refresh.
+
+### Widgets — five new types
+
+- **Next Up** — small widget showing just the next minyan/shiur with its time and a live countdown.
+- **Zmanim** — today's zmanim, honoring your Settings → Zmanim selection (change it in the app and the widget follows).
+- **Full Day** — the whole day's chronological schedule plus a zmanim strip, sized larger than the 3×2 schedule widget.
+- **Full Screen** — a big "next" hero + the full schedule + zmanim, sized to fill a maximized home-screen page.
+- **Custom** — choose which sections show (Next / Schedule / Zmanim) when you place it, and resize it however you like; each copy is configured independently.
+
+### App
+
+- Brand-themed UI refresh — cohesive navy/gold/cream palette, redesigned Today and Zmanim hero cards, and dynamic color turned off so the Luach identity always shows.
+
+See the [release page](https://github.com/Shalom-Karr/Shul-Widget-Published-App/releases/tag/v2.0.0) for the APK.
+
+
 ## [v1.0.6] - 2026-06-09
 
 ## [v1.3.0] - 2026-06-09
 
-Released 2026-06-09. See the [release page](https://github.com/Shalom-Karr/Shul-Widget-Published-App/releases/tag/v1.3.0) for the APK.
+Minyan/zman reminders and a live widget countdown.
+
+- **Reminders** (Settings → Reminders) — get an alarm (vibration + alarm sound) a set number of minutes before a minyan or zman you choose. Repeats every day the time occurs, survives reboots, and uses exact alarms so it lands on the minute.
+- **Live widget countdown** — the schedule widget's "NEXT" now reads "in 25 min" / "now", accurate whenever you glance at your phone.
+- **Richer widget preview** in the widget picker and during the first-load flash.
+- Faster weather refresh (pooled HTTP client).
+
+See the [release page](https://github.com/Shalom-Karr/Shul-Widget-Published-App/releases/tag/v1.3.0) for the APK.
 
 
 ## [v1.2.5] - 2026-06-09
