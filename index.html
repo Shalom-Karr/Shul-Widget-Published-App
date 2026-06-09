@@ -3,181 +3,382 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Shul Widget</title>
-<meta name="description" content="Android home-screen widget for Luach shuls. Today's next minyan and shiurim, on your home screen.">
+<title>SK Luach — Shul Widget for Android</title>
+<meta name="description" content="Android app and home-screen widget for any Luach-powered shul. Today's next minyan, shiurim, events, zmanim, weather — all on your home screen.">
+<meta name="theme-color" content="#0b1220">
+<meta property="og:title" content="SK Luach — Shul Widget for Android">
+<meta property="og:description" content="Your shul's davening times, on your home screen.">
+<meta property="og:image" content="logo.png">
+<link rel="icon" href="logo.png" type="image/png">
+
 <style>
   :root {
-    --bg: #0b1220;
-    --fg: #f8fafc;
+    --navy: #1e3a8a;
+    --navy-deep: #0b1220;
+    --gold: #d97706;
+    --gold-soft: #f59e0b;
+    --cream: #faf7f0;
+    --ink: #0f172a;
     --muted: #94a3b8;
-    --accent: #60a5fa;
-    --border: rgba(255,255,255,0.08);
-    --card: rgba(255,255,255,0.04);
+    --muted-strong: #cbd5e1;
+    --surface: rgba(255,255,255,0.04);
+    --surface-strong: rgba(255,255,255,0.07);
+    --border: rgba(255,255,255,0.10);
+    --border-strong: rgba(255,255,255,0.18);
+    --shadow: 0 30px 60px -20px rgba(0,0,0,0.6);
   }
-  @media (prefers-color-scheme: light) {
-    :root {
-      --bg: #f8fafc;
-      --fg: #0b1220;
-      --muted: #475569;
-      --accent: #1e3a8a;
-      --border: rgba(0,0,0,0.08);
-      --card: rgba(0,0,0,0.03);
-    }
-  }
-  *, *::before, *::after { box-sizing: border-box; }
+  * , *::before, *::after { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; }
   body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
-    background: var(--bg);
-    color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, "Helvetica Neue", sans-serif;
+    color: var(--cream);
     line-height: 1.55;
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    background:
+      radial-gradient(1200px 600px at 20% -10%, rgba(217,119,6,0.18), transparent 60%),
+      radial-gradient(1000px 500px at 100% 20%, rgba(30,58,138,0.45), transparent 60%),
+      linear-gradient(180deg, #050a18 0%, #0b1220 60%, #050a18 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
   }
-  .wrap { max-width: 720px; margin: 0 auto; padding: 64px 24px 96px; }
-  header { margin-bottom: 56px; }
+  a { color: var(--gold-soft); text-decoration: none; }
+  a:hover { color: var(--gold); }
+
+  .container { max-width: 960px; margin: 0 auto; padding: 56px 24px 96px; }
+
+  /* === HEADER / HERO === */
+  header.hero {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 32px;
+    align-items: center;
+    padding: 32px 32px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    box-shadow: var(--shadow);
+    margin-bottom: 48px;
+    backdrop-filter: blur(6px);
+  }
+  .hero-logo {
+    width: 180px; height: 180px;
+    border-radius: 24px;
+    background: #fff;
+    padding: 12px;
+    object-fit: contain;
+    box-shadow: 0 12px 30px -10px rgba(0,0,0,0.5);
+  }
+  .hero-text { min-width: 0; }
   .eyebrow {
-    font-size: 13px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin: 0 0 12px;
-    font-weight: 600;
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--gold-soft); font-weight: 700;
+    background: rgba(217,119,6,0.10);
+    border: 1px solid rgba(217,119,6,0.35);
+    padding: 6px 12px; border-radius: 999px;
   }
   h1 {
-    font-size: 44px;
-    line-height: 1.1;
-    margin: 0 0 16px;
+    font-size: clamp(34px, 5vw, 52px);
+    line-height: 1.05;
+    margin: 16px 0 12px;
     letter-spacing: -0.02em;
-    font-weight: 700;
+    font-weight: 800;
   }
-  .lede { font-size: 19px; color: var(--muted); margin: 0; max-width: 560px; }
-  .cta {
+  .lede {
+    font-size: clamp(16px, 1.8vw, 19px);
+    color: var(--muted-strong);
+    margin: 0 0 24px;
+    max-width: 580px;
+  }
+
+  .cta-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .btn {
     display: inline-flex; align-items: center; gap: 10px;
-    margin-top: 28px;
-    padding: 14px 22px;
-    background: var(--accent);
-    color: #fff;
-    text-decoration: none;
-    border-radius: 10px;
-    font-weight: 600;
-    transition: transform 0.1s ease, opacity 0.1s ease;
+    padding: 13px 22px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 15px;
+    transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+    border: 1px solid transparent;
   }
-  .cta:hover { transform: translateY(-1px); opacity: 0.92; }
-  .cta-sub { display: block; color: var(--muted); font-size: 14px; margin-top: 10px; }
+  .btn-primary {
+    background: linear-gradient(180deg, var(--gold-soft), var(--gold));
+    color: #1a0f00;
+    box-shadow: 0 10px 24px -10px rgba(217,119,6,0.55);
+  }
+  .btn-primary:hover { transform: translateY(-1px); color: #1a0f00; }
+  .btn-secondary {
+    background: var(--surface-strong);
+    color: var(--cream);
+    border-color: var(--border-strong);
+  }
+  .btn-secondary:hover { background: rgba(255,255,255,0.10); color: var(--cream); }
+  .btn-sub {
+    color: var(--muted); font-size: 13px; margin-left: 4px;
+  }
+  .btn .arrow { transition: transform 0.12s ease; }
+  .btn:hover .arrow { transform: translateX(2px); }
+
+  /* === SECTIONS === */
   section { margin-top: 48px; }
-  h2 {
-    font-size: 14px;
-    letter-spacing: 0.08em;
+  h2.section-title {
+    font-size: 13px;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--muted);
-    font-weight: 600;
-    margin: 0 0 16px;
+    font-weight: 700;
+    margin: 0 0 20px;
   }
-  ul.feature-list { list-style: none; padding: 0; margin: 0; }
-  ul.feature-list li {
-    padding: 14px 16px;
-    background: var(--card);
+
+  .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  @media (max-width: 720px) {
+    .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+    header.hero { grid-template-columns: 1fr; text-align: center; }
+    .hero-logo { margin: 0 auto; width: 140px; height: 140px; }
+    .cta-row { justify-content: center; }
+  }
+
+  .card {
+    padding: 22px;
+    background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: 8px;
+    border-radius: 16px;
+    transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
+  }
+  .card:hover { border-color: var(--border-strong); background: var(--surface-strong); transform: translateY(-2px); }
+  .card-eyebrow {
+    font-size: 11px;
+    color: var(--gold-soft);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 700;
     margin-bottom: 8px;
   }
-  ol.steps { padding-left: 22px; margin: 0; }
-  ol.steps li { padding: 8px 0; }
-  .meta {
-    margin-top: 64px;
-    padding-top: 32px;
-    border-top: 1px solid var(--border);
-    color: var(--muted);
+  .card-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--cream);
+    margin: 0 0 6px;
+  }
+  .card-body {
+    color: var(--muted-strong);
     font-size: 14px;
+    margin: 0;
   }
-  .meta a { color: var(--accent); }
-  code {
-    background: var(--card);
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-size: 0.9em;
+
+  ol.steps {
+    counter-reset: step;
+    list-style: none;
+    padding: 0; margin: 0;
   }
-  /* Changelog (auto-rendered from CHANGELOG.md via marked.js) */
-  #changelog {
-    margin-top: 64px;
-    padding: 32px;
-    background: var(--card);
+  ol.steps li {
+    counter-increment: step;
+    padding: 14px 16px 14px 56px;
+    position: relative;
+    background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 12px;
+    margin-bottom: 10px;
+    color: var(--muted-strong);
+  }
+  ol.steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 16px; top: 50%;
+    transform: translateY(-50%);
+    width: 28px; height: 28px;
+    background: var(--gold);
+    color: #1a0f00;
+    border-radius: 999px;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 13px;
+  }
+  ol.steps li strong { color: var(--cream); }
+
+  /* === CHANGELOG === */
+  #changelog {
+    margin-top: 64px;
+    padding: 28px 32px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px;
     max-height: 720px;
     overflow-y: auto;
   }
-  #changelog h2 { font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin: 0 0 16px; padding: 0; }
+  #changelog::-webkit-scrollbar { width: 6px; }
+  #changelog::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 3px; }
   #changelog-body h1 { display: none; }
   #changelog-body h2 {
-    text-transform: none; letter-spacing: 0; font-size: 22px; color: var(--fg);
-    font-weight: 700; margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--border);
+    font-size: 20px; font-weight: 700; color: var(--cream);
+    margin: 28px 0 6px; padding-top: 20px;
+    border-top: 1px solid var(--border);
   }
   #changelog-body h2:first-of-type { padding-top: 0; border-top: none; margin-top: 8px; }
-  #changelog-body h3 { font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); margin: 20px 0 8px; }
-  #changelog-body p { margin: 8px 0; color: var(--fg); }
+  #changelog-body h3 {
+    font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--gold-soft); margin: 18px 0 6px;
+  }
+  #changelog-body p { margin: 6px 0; color: var(--muted-strong); }
   #changelog-body ul { padding-left: 22px; margin: 8px 0; }
-  #changelog-body li { margin: 6px 0; }
-  #changelog-body a { color: var(--accent); }
-  #changelog-body strong { color: var(--fg); font-weight: 600; }
-  #changelog-body code { font-size: 0.85em; }
-  #changelog-status { color: var(--muted); font-size: 14px; margin: 8px 0 0; }
+  #changelog-body li { margin: 4px 0; color: var(--muted-strong); }
+  #changelog-body strong { color: var(--cream); font-weight: 600; }
+  #changelog-body code {
+    background: rgba(0,0,0,0.3); padding: 1px 6px; border-radius: 4px;
+    font-size: 0.86em; color: var(--gold-soft);
+  }
+  #changelog-status { color: var(--muted); font-size: 14px; margin: 4px 0 0; }
   #changelog-status.error { color: #ef4444; }
+
+  /* === FOOTER === */
+  footer {
+    margin-top: 64px; padding-top: 28px;
+    border-top: 1px solid var(--border);
+    display: flex; flex-wrap: wrap; justify-content: space-between;
+    gap: 16px; color: var(--muted); font-size: 13px;
+  }
+  footer a { color: var(--muted-strong); }
+  footer a:hover { color: var(--cream); }
+  .built-by {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--surface-strong);
+    padding: 8px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--border-strong);
+    color: var(--cream);
+    font-weight: 600;
+    font-size: 13px;
+  }
+  .built-by:hover { background: rgba(255,255,255,0.10); color: var(--cream); }
+  .built-by .badge {
+    width: 22px; height: 22px;
+    background: linear-gradient(135deg, var(--gold-soft), var(--gold));
+    color: #1a0f00;
+    border-radius: 6px;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 11px;
+  }
 </style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <p class="eyebrow">Android · Home-screen widget</p>
-      <h1>Today's next minyan, at a glance.</h1>
-      <p class="lede">Shul Widget puts your shul's davening times on your home screen. Pick your shul once. The widget keeps itself current.</p>
-      <a class="cta" href="https://github.com/Shalom-Karr/Shul-Widget-Published-App/releases/latest" id="download-cta" data-latest="v1.0.0">
-        Download latest APK
-      </a>
-      <small class="cta-sub">Sideload-only. Supports Android 7.1.1 and up.</small>
+  <div class="container">
+
+    <header class="hero">
+      <img src="logo.png" alt="SK Luach logo" class="hero-logo">
+      <div class="hero-text">
+        <span class="eyebrow">SK Luach · Android</span>
+        <h1>Your shul's davening times, on your home screen.</h1>
+        <p class="lede">A widget + full app for any Luach-powered shul. Pick your shul once. It keeps itself current — minyanim, shiurim, events, zmanim, and weather.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" id="download-cta" href="https://github.com/Shalom-Karr/Shul-Widget-Published-App/releases/latest">
+            <span id="download-cta-label">Download latest APK</span>
+            <span class="arrow">→</span>
+          </a>
+          <a class="btn btn-secondary" href="https://github.com/Shalom-Karr/Shul-Widget-Published-App/releases">
+            All releases
+          </a>
+        </div>
+        <p class="btn-sub" id="version-line">Sideload-only · Android 7.1.1+</p>
+      </div>
     </header>
 
     <section>
-      <h2>Features</h2>
-      <ul class="feature-list">
-        <li>Today's next minyan, refreshed automatically</li>
-        <li>Daily shiurim</li>
-        <li>Zmanim computed on-device — no network round-trip after first load</li>
-        <li>Auto-updates from this page on every release</li>
-        <li>Works for any Luach shul (CMH, Khal Yereim, Torah Life Kollel, …)</li>
-      </ul>
+      <h2 class="section-title">What's inside</h2>
+      <div class="grid-3">
+        <div class="card">
+          <p class="card-eyebrow">App</p>
+          <h3 class="card-title">Six tabs</h3>
+          <p class="card-body">Today, Schedule, Zmanim, Weather, Settings. Admin tab appears automatically when you sign in.</p>
+        </div>
+        <div class="card">
+          <p class="card-eyebrow">Widget</p>
+          <h3 class="card-title">Schedule + Weather</h3>
+          <p class="card-body">Two responsive widgets in three sizes. Large layout scrolls the full chronological day.</p>
+        </div>
+        <div class="card">
+          <p class="card-eyebrow">On-device</p>
+          <h3 class="card-title">20 zmanim via KosherJava</h3>
+          <p class="card-body">No network round-trip after first load. Customize which appear in Settings.</p>
+        </div>
+        <div class="card">
+          <p class="card-eyebrow">Multi-tenant</p>
+          <h3 class="card-title">One app, many shuls</h3>
+          <p class="card-body">CMH, Khal Yereim, Torah Life Kollel — and any future shul added to the registry.</p>
+        </div>
+        <div class="card">
+          <p class="card-eyebrow">Admin</p>
+          <h3 class="card-title">CRUD on your phone</h3>
+          <p class="card-body">Sign in with your shul's Supabase credentials. Edit minyanim, shiurim, events, exceptions.</p>
+        </div>
+        <div class="card">
+          <p class="card-eyebrow">Weather</p>
+          <h3 class="card-title">Open-Meteo, free</h3>
+          <p class="card-body">Current conditions + 5-day forecast. Standalone widget in the same visual language.</p>
+        </div>
+      </div>
     </section>
 
     <section>
-      <h2>Install</h2>
+      <h2 class="section-title">Install</h2>
       <ol class="steps">
-        <li>Download the APK from <a href="https://github.com/Shalom-Karr/Shul-Widget-Published-App/releases/latest">the latest release</a>.</li>
-        <li>Open it on your phone. Allow "Install from unknown sources" if asked.</li>
-        <li>Long-press your home screen → <strong>Widgets</strong> → drag <strong>Shul Widget</strong>.</li>
+        <li>Tap <strong>Download latest APK</strong> above.</li>
+        <li>Open the file on your phone. Allow <strong>"Install from unknown sources"</strong> if asked.</li>
+        <li>Long-press your home screen → <strong>Widgets</strong> → drag <strong>Shul Widget</strong> out.</li>
         <li>Pick your shul. Done.</li>
       </ol>
     </section>
 
     <section id="changelog">
-      <h2>Changelog</h2>
+      <h2 class="section-title">Changelog</h2>
       <p id="changelog-status">Loading…</p>
       <div id="changelog-body" hidden></div>
     </section>
 
-    <p class="meta">
-      © 2026 Shalom Karr. Personal, non-commercial use only.
-      <a href="LICENSE">License</a> · <a href="CHANGELOG.md">Full changelog</a> · <a href="https://github.com/Shalom-Karr/Shul-Widget-Published-App/releases">All releases</a>
-    </p>
+    <footer>
+      <div>© 2026 Shalom Karr · Personal, non-commercial use only · <a href="LICENSE">License</a></div>
+      <a class="built-by" href="https://ShalomKarr.pages.dev" target="_blank" rel="noopener">
+        <span class="badge">SK</span>
+        Built by Shalom Karr
+      </a>
+    </footer>
+
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js" defer></script>
   <script>
+    // Resolve the direct APK URL + version label from the latest release so the
+    // primary CTA bypasses the GitHub releases page entirely.
+    (function () {
+      var ctaEl = document.getElementById('download-cta');
+      var labelEl = document.getElementById('download-cta-label');
+      var versionLineEl = document.getElementById('version-line');
+      var apiUrl = 'https://api.github.com/repos/Shalom-Karr/Shul-Widget-Published-App/releases/latest';
+
+      fetch(apiUrl, { cache: 'no-store' })
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (release) {
+          if (!release || !release.assets) return;
+          var apkAsset = release.assets.find(function (a) { return /\.apk$/i.test(a.name); });
+          if (apkAsset) {
+            ctaEl.href = apkAsset.browser_download_url;
+            labelEl.textContent = 'Download ' + release.tag_name + ' APK';
+          }
+          if (versionLineEl) {
+            versionLineEl.textContent = 'Latest: ' + release.tag_name + ' · Sideload-only · Android 7.1.1+';
+          }
+        })
+        .catch(function () { /* keep the fallback href on the CTA */ });
+    })();
+
     // Auto-render CHANGELOG.md inside #changelog-body. Fetches the raw file from
     // this repo's main branch so the page stays in sync without a rebuild step.
     document.addEventListener('DOMContentLoaded', function () {
       var statusEl = document.getElementById('changelog-status');
       var bodyEl = document.getElementById('changelog-body');
       var raw = 'https://raw.githubusercontent.com/Shalom-Karr/Shul-Widget-Published-App/main/CHANGELOG.md';
+
       fetch(raw, { cache: 'no-store' })
         .then(function (r) {
           if (!r.ok) throw new Error('HTTP ' + r.status);
@@ -185,12 +386,8 @@
         })
         .then(function (md) {
           if (typeof marked === 'undefined') {
-            // marked.js is still loading; wait for the script then render.
             var wait = setInterval(function () {
-              if (typeof marked !== 'undefined') {
-                clearInterval(wait);
-                renderMd(md);
-              }
+              if (typeof marked !== 'undefined') { clearInterval(wait); renderMd(md); }
             }, 50);
           } else {
             renderMd(md);
