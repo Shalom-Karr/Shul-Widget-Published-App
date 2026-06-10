@@ -6,6 +6,16 @@ This project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [v3.0.3] - 2026-06-10
+
+Smoother scrolling and snappier-feeling tabs.
+
+- **Smoother scrolling** — the swipe-between-tabs feature was keeping the neighbouring tabs fully loaded in the background at all times, which made scrolling choppier and used more memory on slower phones. Now only the tab you're on is loaded; the next one loads the instant you swipe to it.
+- **Skeleton loaders** — Today, Schedule, Zmanim, and Weather now show a light, scrollable placeholder while their data loads for the first time, instead of a spinner. The screen is usable right away and fills in smoothly.
+
+See the [release page](https://github.com/Shalom-Karr/Shul-Widget-Published-App/releases/tag/v3.0.3) for the APKs.
+
+
 ## [v3.0.2] - 2026-06-10
 
 - Fixed home-screen widgets showing "Tap to pick a shul" after you'd already chosen one — they now wait for your shul and refresh correctly.
