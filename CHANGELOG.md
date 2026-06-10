@@ -6,6 +6,20 @@ This project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [v3.0.0] - 2026-06-09 — Flip Phone Support
+
+A separate APK built for **D-pad flip phones**.
+
+- **Flip APK** — download the `…-flip…` APK on a D-pad flip phone. Same app, a build tuned for tiny non-touch screens.
+- **D-pad navigation** — **Left/Right** switch tabs, **Up/Down** move through the page, **OK/Center** selects, and the right soft key goes **Back**.
+- **Smaller UI** — the whole interface is scaled down so it fits a flip-phone screen.
+- Installs on **non-touch hardware**.
+
+Regular phones are unaffected — grab the normal APK as before.
+
+See the [release page](https://github.com/Shalom-Karr/Shul-Widget-Published-App/releases/tag/v3.0.0) for the APKs.
+
+
 ## [v2.5.1] - 2026-06-09
 
 - **Swipe between tabs** — swipe left/right to move through the bottom-nav tabs (hidden tabs are skipped).
