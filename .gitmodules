@@ -1,0 +1,4 @@
+[submodule "src"]
+	path = src
+	url = https://github.com/Shalom-Karr/Shul-Widget.git
+	branch = main

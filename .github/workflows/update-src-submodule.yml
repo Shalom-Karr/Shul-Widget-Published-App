@@ -1,0 +1,51 @@
+name: Update src submodule on release
+
+# When a new release is published here, advance the `src` submodule pointer to
+# the latest commit on the source repo's main branch, so the linked source stays
+# current with each release. Also runnable manually.
+#
+# Needs a SUBMODULE_TOKEN secret: a token with READ on the (private) source repo
+# Shul-Widget and WRITE on this repo (used for both the submodule fetch and the
+# push).
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-src-submodule
+  cancel-in-progress: false
+
+jobs:
+  update-src:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout (with submodule)
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.SUBMODULE_TOKEN }}
+          submodules: true
+          fetch-depth: 0
+
+      - name: Point src at the latest source commit
+        run: |
+          set -euo pipefail
+          git submodule sync src
+          git submodule update --remote --init src
+
+          if git diff --quiet -- src; then
+            echo "src submodule already at the latest source commit — nothing to do."
+            exit 0
+          fi
+
+          git config user.name "release-bot"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add src
+          git commit -m "Update src submodule to latest source (${{ github.event.release.tag_name || 'manual' }})"
+          git push
+          echo "src submodule advanced to:"
+          git submodule status src
