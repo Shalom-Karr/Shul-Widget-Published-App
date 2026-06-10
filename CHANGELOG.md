@@ -6,6 +6,14 @@ This project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [v3.0.2] - 2026-06-10
+
+- Fixed home-screen widgets showing "Tap to pick a shul" after you'd already chosen one — they now wait for your shul and refresh correctly.
+- First-time setup now offers to add the **full widget set** to your home screen.
+
+See the [release page](https://github.com/Shalom-Karr/Shul-Widget-Published-App/releases/tag/v3.0.2) for the APKs.
+
+
 ## [v3.0.1] - 2026-06-10
 
 - Minor under-the-hood improvements and stability tweaks.
