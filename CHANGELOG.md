@@ -6,6 +6,17 @@ This project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [v2.2.1] - 2026-06-09
+
+Smoother shul switching + a cleaner default nav.
+
+- **Switching shuls is instant** — every screen (Today, Schedule, Zmanim, Weather) now reloads the moment you switch shuls, and widgets re-render reliably right after you pick one.
+- **Admin tab hidden by default** — most users aren't gabbais; re-enable it in Settings → Visible tabs to sign in.
+- **Zmanim** — "Sunrise (Hanetz)" relabeled "Sunrise (Neitz)".
+
+See the [release page](https://github.com/Shalom-Karr/Shul-Widget-Published-App/releases/tag/v2.2.1) for the APK.
+
+
 ## [v2.2.0] - 2026-06-09
 
 Per-widget shul, a working Custom widget, widget sizing, and a Shabbos view.
