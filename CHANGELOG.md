@@ -6,6 +6,23 @@ This project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [v2.5.0] - 2026-06-09
+
+A real alarm for reminders, plus more widget options.
+
+### Reminders
+
+- **Full-screen alarm** — a reminder now takes over the screen (even when locked) with a looping alarm sound, and **Dismiss** / **Snooze 9 min** buttons, like a clock alarm.
+- **"Fires in X"** — each reminder shows when it will next go off.
+
+### Widgets
+
+- **Current Weather** can be **2×1** (just the current conditions) or **2×2** (adds today's High/Low).
+- **New Shabbos widget (4×6)** — the upcoming Erev Shabbos (Friday from Mincha + candle lighting) and Shabbos schedule, with the parsha.
+
+See the [release page](https://github.com/Shalom-Karr/Shul-Widget-Published-App/releases/tag/v2.5.0) for the APK.
+
+
 ## [v2.4.0] - 2026-06-09
 
 A redesigned, purpose-built widget lineup.
