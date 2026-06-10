@@ -6,6 +6,22 @@ This project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [v2.4.0] - 2026-06-09
+
+A redesigned, purpose-built widget lineup.
+
+- **Five focused widgets**, each with a real preview in the picker so you see what you're adding:
+  - **Next Event** (4×1) — next minyan/shiur with a countdown.
+  - **Main Shul Overview** (4×4) — the full overview.
+  - **All Zmanim** (4×3) — today's zmanim.
+  - **Current Weather** (2×2, or 4-wide with the hourly strip).
+  - **Next Zman** (2×2 / 4×1) — countdown to the next zman (new).
+- **First-launch setup** — the app offers to add Main Shul Overview + Next Event to your home screen.
+- Fixed a frozen pull-to-refresh spinner on the Today screen.
+
+See the [release page](https://github.com/Shalom-Karr/Shul-Widget-Published-App/releases/tag/v2.4.0) for the APK.
+
+
 ## [v2.3.0] - 2026-06-09
 
 Find your closest shul, all zmanim by default, and a smarter weather header.
