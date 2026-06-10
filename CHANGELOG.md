@@ -6,6 +6,16 @@ This project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [v2.5.1] - 2026-06-09
+
+- **Swipe between tabs** — swipe left/right to move through the bottom-nav tabs (hidden tabs are skipped).
+- **Next Zman widget** now rolls over to **tomorrow's** first zman once the day's zmanim are done, and always considers **Chatzos**.
+- **Current Weather** at 2×2 adds **Feels-like** and **Humidity / Wind** under the High/Low.
+- Fixed the reminders **Add** dialog so the "minutes before" selector is reachable on the Zman tab.
+
+See the [release page](https://github.com/Shalom-Karr/Shul-Widget-Published-App/releases/tag/v2.5.1) for the APK.
+
+
 ## [v2.5.0] - 2026-06-09
 
 A real alarm for reminders, plus more widget options.
