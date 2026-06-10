@@ -6,6 +6,15 @@ This project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [v3.0.4] - 2026-06-10
+
+More scrolling smoothness.
+
+- **Faster list scrolling** — schedule and zmanim rows were drawing a soft drop-shadow on every row, which made long lists struggle to fling on slower phones. Rows are now flat tiles with a crisp hairline outline — same look, far less work per frame.
+
+See the [release page](https://github.com/Shalom-Karr/Shul-Widget-Published-App/releases/tag/v3.0.4) for the APKs.
+
+
 ## [v3.0.3] - 2026-06-10
 
 Smoother scrolling and snappier-feeling tabs.
