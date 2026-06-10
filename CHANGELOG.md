@@ -6,6 +6,17 @@ This project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [v2.3.0] - 2026-06-09
+
+Find your closest shul, all zmanim by default, and a smarter weather header.
+
+- **Nearby shuls** (Settings → Nearby shuls) — ranks the registered shuls by how far they are from you and lets you tap to switch to the closest one.
+- **All zmanim shown by default** — a fresh install now lists every zman on the Zmanim tab, and the picker is redesigned as a clean checklist with Select all / Clear all.
+- **Weather header** — when "use device location for weather" is on, the header shows your live coordinates + the nearest place instead of the shul's name.
+
+See the [release page](https://github.com/Shalom-Karr/Shul-Widget-Published-App/releases/tag/v2.3.0) for the APK.
+
+
 ## [v2.2.1] - 2026-06-09
 
 Smoother shul switching + a cleaner default nav.

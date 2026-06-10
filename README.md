@@ -2,7 +2,7 @@
 
 Android app + home-screen widget for any Luach-powered shul. Multi-tenant — one app, three shuls so far (CMH, Khal Yereim, Torah Life Kollel), more easy to add.
 
-**Latest: v2.2.1** — **Instant shul switching** (every screen reloads the moment you switch), the **admin tab is hidden by default**, and small zmanim label fixes. v2.2.0 added **per-widget shul** (every widget can show a different shul), the **Custom widget** that really customizes (pick + reorder sections), better widget sizing, and a **See Shabbos** view (Friday-Mincha-onward + Shabbos, with the parsha). v2.1.x added **device location for weather** and a wider Next Up widget; v2.0.x brought the full **widget family** (seven widgets) plus **reminders** with customizable alarm sound. v1.1.0 added **Sign in with Google** for admins.
+**Latest: v2.3.0** — **Nearby shuls** (find + switch to the closest shul by distance), **all zmanim shown by default** with a redesigned checklist picker, and a **weather header** that shows your coordinates + nearest place when using device location. v2.2.1 added **instant shul switching** and hid the **admin tab** by default. v2.2.0 added **per-widget shul** (every widget can show a different shul), the **Custom widget** that really customizes (pick + reorder sections), better widget sizing, and a **See Shabbos** view (Friday-Mincha-onward + Shabbos, with the parsha). v2.1.x added **device location for weather** and a wider Next Up widget; v2.0.x brought the full **widget family** (seven widgets) plus **reminders** with customizable alarm sound. v1.1.0 added **Sign in with Google** for admins.
 
 ## Install
 
