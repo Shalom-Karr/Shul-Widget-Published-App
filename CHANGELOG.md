@@ -6,6 +6,13 @@ This project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [v3.0.1] - 2026-06-10
+
+- Minor under-the-hood improvements and stability tweaks.
+
+See the [release page](https://github.com/Shalom-Karr/Shul-Widget-Published-App/releases/tag/v3.0.1) for the APKs.
+
+
 ## [v3.0.0] - 2026-06-09 — Flip Phone Support
 
 A separate APK built for **D-pad flip phones**.
