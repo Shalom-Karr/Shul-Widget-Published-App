@@ -28,6 +28,7 @@
     --shadow: 0 30px 60px -20px rgba(0,0,0,0.6);
   }
   * , *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
   html, body { margin: 0; padding: 0; }
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, "Helvetica Neue", sans-serif;
@@ -301,11 +302,14 @@
             <span id="download-cta-label">Download latest APK</span>
             <span class="arrow">→</span>
           </a>
+          <a class="btn btn-secondary" href="#install">
+            How to install ↓
+          </a>
           <a class="btn btn-secondary" href="https://github.com/Shalom-Karr/Shul-Widget-Published-App/releases">
             All releases
           </a>
         </div>
-        <p class="btn-sub" id="version-line">Sideload-only · Android 7.1.1+</p>
+        <p class="btn-sub" id="version-line">Sideload-only · Android 7.1.1+ · normal + flip-phone builds</p>
       </div>
     </header>
 
@@ -373,7 +377,7 @@
       </div>
     </section>
 
-    <section>
+    <section id="install">
       <h2 class="section-title">How to install (sideload)</h2>
       <p class="narrative">This app isn't on the Play Store — you install the APK directly. It takes about a minute.</p>
       <ol class="steps" style="margin-top:18px;">
@@ -436,7 +440,7 @@
             labelEl.textContent = 'Download ' + release.tag_name + ' APK';
           }
           if (versionLineEl) {
-            versionLineEl.textContent = 'Latest: ' + release.tag_name + ' · Sideload-only · Android 7.1.1+';
+            versionLineEl.textContent = 'Latest: ' + release.tag_name + ' · Sideload-only · Android 7.1.1+ · normal + flip-phone builds';
           }
         })
         .catch(function () { /* keep the fallback href on the CTA */ });

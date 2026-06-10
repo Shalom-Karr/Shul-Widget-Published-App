@@ -8,6 +8,13 @@ name: Deploy GitHub Pages
 on:
   push:
     branches: [main]
+    # Only redeploy when the actual site changes — not for README/CHANGELOG edits.
+    # (The page fetches CHANGELOG.md live at runtime, so it needs no rebuild.)
+    paths:
+      - 'index.html'
+      - 'logo.png'
+      - 'LICENSE'
+      - '.github/workflows/pages.yml'
   workflow_dispatch:
 
 permissions:
