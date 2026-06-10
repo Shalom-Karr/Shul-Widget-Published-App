@@ -6,6 +6,18 @@ This project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [v3.1.0] - 2026-06-10
+
+Zmanim & weather by your location — no shul needed.
+
+- **“No Shul — Zmanim & Weather only”** — a new choice in the shul picker. The app drops the Today and Schedule tabs and becomes a focused zmanim + weather app for **your location**.
+- **Set your location** in Settings → Location: your **device GPS** or a **US ZIP code**. Zmanim are computed on-device for those coordinates; weather uses them too.
+- The Zmanim header shows your **city, ZIP, and coordinates**.
+- In this mode, **reminders are zmanim-only** (e.g. "20 minutes before sunset").
+
+See the [release page](https://github.com/Shalom-Karr/Shul-Widget-Published-App/releases/tag/v3.1.0) for the APKs.
+
+
 ## [v3.0.4] - 2026-06-10
 
 More scrolling smoothness.

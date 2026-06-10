@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>SK Luach — Shul Widget for Android</title>
-<meta name="description" content="Android app and home-screen widget for any Luach-powered shul. Today's next minyan, shiurim, events, zmanim, weather — all on your home screen.">
+<meta name="description" content="Free Android app + home-screen widgets for any Luach-powered shul — next minyan with a live countdown, shiurim, events, 20 on-device zmanim, weather, and alarm reminders. Or run it with no shul: zmanim & weather for your own location or ZIP code. Sideload APK, Android 7.1.1+.">
 <meta name="theme-color" content="#0b1220">
 <meta property="og:title" content="SK Luach — Shul Widget for Android">
-<meta property="og:description" content="Your shul's davening times, on your home screen.">
+<meta property="og:description" content="Your shul's davening times on your home screen — minyanim, zmanim, weather, reminders. Or zmanim & weather for your own location.">
 <meta property="og:image" content="logo.png">
 <link rel="icon" href="logo.png" type="image/png">
 
@@ -198,6 +198,31 @@
   }
   ol.steps li strong { color: var(--cream); }
 
+  /* Narrative paragraphs */
+  .narrative { font-size: 16px; color: var(--muted-strong); max-width: 780px; margin: 0; }
+  .narrative strong { color: var(--cream); }
+  .narrative em { color: var(--gold-soft); font-style: normal; }
+
+  /* Callout / notice box */
+  .notice {
+    margin-top: 22px;
+    padding: 20px 22px;
+    background: rgba(217,119,6,0.08);
+    border: 1px solid rgba(217,119,6,0.30);
+    border-radius: 14px;
+  }
+  .notice h3 { margin: 0 0 10px; font-size: 17px; color: var(--cream); font-weight: 700; }
+  .notice p { margin: 8px 0; color: var(--muted-strong); font-size: 14.5px; }
+  .notice strong { color: var(--cream); }
+  .notice em { color: var(--gold-soft); font-style: normal; }
+
+  .pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+  .pill {
+    font-size: 12px; padding: 6px 13px; border-radius: 999px;
+    background: var(--surface-strong); border: 1px solid var(--border-strong);
+    color: var(--muted-strong); font-weight: 600;
+  }
+
   /* === CHANGELOG === */
   #changelog {
     margin-top: 64px;
@@ -270,9 +295,9 @@
       <div class="hero-text">
         <span class="eyebrow">SK Luach · Android</span>
         <h1>Your shul's davening times, on your home screen.</h1>
-        <p class="lede">A widget + full app for any Luach-powered shul. Pick your shul once. It keeps itself current — minyanim, shiurim, events, zmanim, and weather.</p>
+        <p class="lede">A home-screen widget + full Android app for any Luach-powered shul — and a standalone <strong>zmanim &amp; weather</strong> app for your own location. Today's next minyan with a live countdown, shiurim, events, 20 on-device zmanim, weather, and an alarm before any time. Pick once; it keeps itself current.</p>
         <div class="cta-row">
-          <a class="btn btn-primary" id="download-cta" data-latest="v3.0.4" href="https://github.com/Shalom-Karr/Shul-Widget-Published-App/releases/latest">
+          <a class="btn btn-primary" id="download-cta" data-latest="v3.1.0" href="https://github.com/Shalom-Karr/Shul-Widget-Published-App/releases/latest">
             <span id="download-cta-label">Download latest APK</span>
             <span class="arrow">→</span>
           </a>
@@ -285,49 +310,94 @@
     </header>
 
     <section>
+      <h2 class="section-title">What it is</h2>
+      <p class="narrative">
+        <strong>Shul Widget</strong> puts your shul's davening schedule on your home screen and in a full app.
+        Pick your shul once and it stays current — the <strong>next minyan with a live countdown</strong>, shiurim, events,
+        <strong>20 zmanim computed right on your phone</strong>, and local weather. No account or sign-in for everyday use.
+      </p>
+      <p class="narrative" style="margin-top:14px;">
+        Not affiliated with a listed shul? Choose <em>“No Shul — Zmanim &amp; Weather only”</em> and it becomes a clean
+        zmanim + weather app for <strong>your device location or a ZIP code</strong>.
+      </p>
+    </section>
+
+    <section>
       <h2 class="section-title">What's inside</h2>
       <div class="grid-3">
         <div class="card">
-          <p class="card-eyebrow">App</p>
-          <h3 class="card-title">Reminders + six tabs</h3>
-          <p class="card-body">Today, Schedule, Zmanim, Weather, Settings (Admin appears when you sign in). Set an alarm — vibrate + alarm sound — before any minyan or zman.</p>
+          <p class="card-eyebrow">Home screen</p>
+          <h3 class="card-title">A widget lineup</h3>
+          <p class="card-body">Next Event, Main Shul Overview, All Zmanim, Current Weather, Next Zman, and an upcoming-Shabbos widget — each with a real preview in the picker. Every widget can show a different shul.</p>
         </div>
         <div class="card">
-          <p class="card-eyebrow">Widgets</p>
-          <h3 class="card-title">Seven widgets</h3>
-          <p class="card-body">Schedule, weather, next-up countdown, zmanim, full-day, full-screen, and a customizable one you configure on placement. From small to full-screen.</p>
+          <p class="card-eyebrow">App</p>
+          <h3 class="card-title">Today · Schedule · Zmanim · Weather</h3>
+          <p class="card-body">A chronological day, a weekly per-tefilla view, your zmanim, and Open-Meteo weather. Swipe between tabs.</p>
+        </div>
+        <div class="card">
+          <p class="card-eyebrow">New · v3.1.0</p>
+          <h3 class="card-title">Zmanim &amp; weather by location</h3>
+          <p class="card-body">Pick “No Shul” and get zmanim + weather for your device GPS or a ZIP code — no shul required. The header shows your city, ZIP, and coordinates.</p>
+        </div>
+        <div class="card">
+          <p class="card-eyebrow">Reminders</p>
+          <h3 class="card-title">An alarm before any time</h3>
+          <p class="card-body">A full-screen alarm — vibration + sound, snooze or dismiss — a set number of minutes before a minyan or zman. Exact, and it survives reboots and Doze.</p>
         </div>
         <div class="card">
           <p class="card-eyebrow">On-device</p>
           <h3 class="card-title">20 zmanim via KosherJava</h3>
-          <p class="card-body">No network round-trip after first load. Customize which appear in Settings.</p>
+          <p class="card-body">Computed on your phone — no network round-trip after first load. Choose which ones appear.</p>
+        </div>
+        <div class="card">
+          <p class="card-eyebrow">Find a shul</p>
+          <h3 class="card-title">Nearby shuls</h3>
+          <p class="card-body">Ranks the registered shuls by distance and switches to the closest one in a tap.</p>
+        </div>
+        <div class="card">
+          <p class="card-eyebrow">Admin</p>
+          <h3 class="card-title">Manage from your phone</h3>
+          <p class="card-body">Sign in with Google or email and edit minyanim, shiurim, events, exceptions, and settings. Plus per-shul team chat.</p>
+        </div>
+        <div class="card">
+          <p class="card-eyebrow">Flip phones</p>
+          <h3 class="card-title">A D-pad build</h3>
+          <p class="card-body">A separate flip-phone APK: scaled-down UI, Left/Right to switch tabs, OK to select. Installs on non-touch hardware.</p>
         </div>
         <div class="card">
           <p class="card-eyebrow">Multi-tenant</p>
           <h3 class="card-title">One app, many shuls</h3>
-          <p class="card-body">CMH, Khal Yereim, Torah Life Kollel — and any future shul added to the registry.</p>
-        </div>
-        <div class="card">
-          <p class="card-eyebrow">Admin</p>
-          <h3 class="card-title">CRUD on your phone</h3>
-          <p class="card-body">Sign in with your shul's Supabase credentials. Edit minyanim, shiurim, events, exceptions.</p>
-        </div>
-        <div class="card">
-          <p class="card-eyebrow">Weather</p>
-          <h3 class="card-title">Open-Meteo, free</h3>
-          <p class="card-body">Current conditions + 5-day forecast. Standalone widget in the same visual language.</p>
+          <p class="card-body">CMH, Khal Yereim, Torah Life Kollel — and any shul added to the registry.</p>
         </div>
       </div>
     </section>
 
     <section>
-      <h2 class="section-title">Install</h2>
-      <ol class="steps">
-        <li>Tap <strong>Download latest APK</strong> above.</li>
-        <li>Open the file on your phone. Allow <strong>"Install from unknown sources"</strong> if asked.</li>
-        <li>Long-press your home screen → <strong>Widgets</strong> → drag <strong>Shul Widget</strong> out.</li>
-        <li>Pick your shul. Done.</li>
+      <h2 class="section-title">How to install (sideload)</h2>
+      <p class="narrative">This app isn't on the Play Store — you install the APK directly. It takes about a minute.</p>
+      <ol class="steps" style="margin-top:18px;">
+        <li><strong>Download the right APK.</strong> Most modern phones: the <code>arm64-v8a</code> file. Older / budget phones (TracFone, Moto&nbsp;E): <code>armeabi-v7a</code>. Not sure: the universal one (no ABI in the name). Flip phones: the <code>-flip</code> APK.</li>
+        <li><strong>Open the downloaded file.</strong> If Android says it can't install from this source, tap <strong>Settings</strong> on that prompt and turn on <strong>“Allow from this source”</strong> for your browser or Files app, then tap the file again.</li>
+        <li><strong>Get past the Play&nbsp;Protect screen.</strong> Android may show <em>“Unsafe app blocked”</em> or <em>“Play Protect doesn't recognize this app.”</em> Tap <strong>More details</strong> (sometimes shown as <strong>“see more”</strong>) → <strong>Install anyway</strong>. This is expected — see below.</li>
+        <li><strong>Open the app and pick your shul</strong> — or choose <strong>“No Shul — Zmanim &amp; Weather only”</strong> for zmanim + weather by your location.</li>
+        <li><strong>Add widgets.</strong> Long-press the home screen → <strong>Widgets</strong> → <strong>Shul Widget</strong> → drag out the ones you want. (On first launch the app also offers to add them for you.)</li>
       </ol>
+
+      <div class="notice">
+        <h3>Why does Google warn me — is it unsafe?</h3>
+        <p>No. The <strong>“Play Protect doesn't recognize this developer”</strong> / <strong>“Install anyway”</strong> screen appears for <em>every</em> app that isn't installed from the Google Play Store. It's about <strong>where</strong> an app comes from — not what it does.</p>
+        <p>Google designed Android to push installs through the Play Store, where apps are reviewed and Google takes a cut of any payments. Anything you <strong>sideload</strong> — install directly as an APK — gets this scary-looking prompt by default, even though sideloading is a normal, fully supported part of Android.</p>
+        <p>This app is open about exactly what it is: every release and the full changelog are public, it asks only for ordinary permissions, and it updates itself in place from this page. Tapping <strong>“Install anyway”</strong> is the right move.</p>
+      </div>
+
+      <div class="pill-row">
+        <span class="pill">No ads</span>
+        <span class="pill">Free</span>
+        <span class="pill">On-device zmanim</span>
+        <span class="pill">In-place auto-updates</span>
+        <span class="pill">Android 7.1.1+</span>
+      </div>
     </section>
 
     <section id="changelog">

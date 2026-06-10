@@ -2,7 +2,7 @@
 
 Android app + home-screen widget for any Luach-powered shul. Multi-tenant — one app, three shuls so far (CMH, Khal Yereim, Torah Life Kollel), more easy to add.
 
-**Latest: v3.0.0 — Flip Phone Support** — a separate **flip-phone APK** with full **D-pad navigation** (Left/Right switch tabs, Up/Down/OK select), a scaled-down UI, and non-touch install support; regular phones grab the normal APK as before. v2.5.1 added **swipe between tabs**, the **Next Zman** widget's tomorrow rollover (+Chatzos), and weather-widget 2×2 details. v2.5.0 added reminders **full-screen alarm** (snooze/dismiss) + "fires in X", the weather widget **2×1 / 2×2 (with H/L)**, and a **Shabbos widget** (4×6). v2.4.0 introduced the redesigned **widget lineup** of purpose-built widgets, each with a real preview in the picker, plus first-launch home-screen setup. v2.3.0 added **Nearby shuls**, **all zmanim by default**, and a device-location **weather header**. v2.2.1 added **instant shul switching** and hid the **admin tab** by default. v2.2.0 added **per-widget shul** (every widget can show a different shul), the **Custom widget** that really customizes (pick + reorder sections), better widget sizing, and a **See Shabbos** view (Friday-Mincha-onward + Shabbos, with the parsha). v2.1.x added **device location for weather** and a wider Next Up widget; v2.0.x brought the full **widget family** (seven widgets) plus **reminders** with customizable alarm sound. v1.1.0 added **Sign in with Google** for admins.
+**Latest: v3.1.0 — Zmanim & Weather by your location** — pick **“No Shul — Zmanim & Weather only”** in the shul list and the app becomes a clean **zmanim + weather** app for **your device location or a ZIP code** (Today and Schedule tabs hide themselves, and reminders become zmanim-only). The Zmanim header shows your city, ZIP, and coordinates. v3.0.0 added **Flip Phone Support** — a separate **flip-phone APK** with full **D-pad navigation** (Left/Right switch tabs, Up/Down/OK select), a scaled-down UI, and non-touch install support; regular phones grab the normal APK as before. v2.5.1 added **swipe between tabs**, the **Next Zman** widget's tomorrow rollover (+Chatzos), and weather-widget 2×2 details. v2.5.0 added reminders **full-screen alarm** (snooze/dismiss) + "fires in X", the weather widget **2×1 / 2×2 (with H/L)**, and a **Shabbos widget** (4×6). v2.4.0 introduced the redesigned **widget lineup** of purpose-built widgets, each with a real preview in the picker, plus first-launch home-screen setup. v2.3.0 added **Nearby shuls**, **all zmanim by default**, and a device-location **weather header**. v2.2.1 added **instant shul switching** and hid the **admin tab** by default. v2.2.0 added **per-widget shul** (every widget can show a different shul), the **Custom widget** that really customizes (pick + reorder sections), better widget sizing, and a **See Shabbos** view (Friday-Mincha-onward + Shabbos, with the parsha). v2.1.x added **device location for weather** and a wider Next Up widget; v2.0.x brought the full **widget family** (seven widgets) plus **reminders** with customizable alarm sound. v1.1.0 added **Sign in with Google** for admins.
 
 ## Install
 
@@ -29,6 +29,15 @@ Supports **Android 7.1.1 (API 25) and up**.
 | **Admin** | **Sign in with Google** *(v1.1.0)* or email/password. Once signed in, manage minyanim, shiurim, events, exceptions, and settings for your shul. |
 | **Chat** *(admins only)* | Per-shul team chat with OS notifications. |
 | **Settings** | Switch shul, refresh schedule, check for updates, customize zmanim, **pick which tabs are visible in the bottom nav** (v1.2.0+), **reminders** (v1.3.0+), item-type icons toggle, kiosk preview, open full web admin, contact developer, report a bug. |
+
+### Zmanim & Weather by your location — no shul needed *(v3.1.0)*
+
+Not affiliated with a shul in the list, or just want zmanim and weather for wherever you are? In the shul picker, choose **“No Shul — Zmanim & Weather only.”** The app then:
+
+- **Hides the Today and Schedule tabs** — there's no shul schedule, so it becomes a focused **Zmanim + Weather** app.
+- Computes **zmanim on-device** (KosherJava) for **your location**, and shows **local weather** for the same spot.
+- Lets you set that location in **Settings → Location** — either your **device GPS** or a **US ZIP code**. The Zmanim header shows your **city, ZIP, and coordinates**.
+- Keeps **reminders** working — in this mode they're **zmanim-only** (e.g. "20 minutes before sunset").
 
 ### Reminders *(v1.3.0+)*
 
