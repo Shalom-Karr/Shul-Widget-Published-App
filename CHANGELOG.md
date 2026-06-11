@@ -6,6 +6,13 @@ This project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [v3.1.1] - 2026-06-10
+
+- Fixed a crash when opening the **Admin** tab (introduced with swipe-between-tabs).
+
+See the [release page](https://github.com/Shalom-Karr/Shul-Widget-Published-App/releases/tag/v3.1.1) for the APKs.
+
+
 ## [v3.1.0] - 2026-06-10
 
 Zmanim & weather by your location — no shul needed.
