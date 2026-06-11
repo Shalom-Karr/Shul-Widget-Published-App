@@ -27,6 +27,9 @@ jobs:
       - name: Checkout (with submodule)
         uses: actions/checkout@v4
         with:
+          # On a `release` event the default ref is the tag → detached HEAD, which
+          # can't be pushed. Check out main so the bump commit has a branch.
+          ref: main
           token: ${{ secrets.SUBMODULE_TOKEN }}
           submodules: true
           fetch-depth: 0
