@@ -6,6 +6,16 @@ This project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [v3.1.2] - 2026-06-12
+
+Cleaner **No Shul** mode.
+
+- In **“No Shul — Zmanim & Weather only”**, Settings now hides the options that only make sense with a shul: the *Use device location for weather* toggle and the *Kiosk preview* / *Full admin in browser* links.
+- The **Visible tabs** picker in No-Shul mode now only offers Zmanim and Weather — Today, Schedule, Admin and Chat are hidden, matching the tabs actually shown.
+
+See the [release page](https://github.com/Shalom-Karr/Shul-Widget-Published-App/releases/tag/v3.1.2) for the APKs.
+
+
 ## [v3.1.1] - 2026-06-10
 
 - Fixed a crash when opening the **Admin** tab (introduced with swipe-between-tabs).
